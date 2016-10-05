@@ -137,6 +137,19 @@ function makeConfig(conf) {
           exclude: helpers.excludeIndexHtml(conf.src, conf.htmlIndexes)
         },
 
+		  /**
+         * Sass and raw loaders support for *.scss files
+         * Returns file content as string
+         *
+         * See: https://github.com/jtangelder/sass-loader
+         * See: https://github.com/webpack/raw-loader
+         */
+        {
+          test: /\.scss$/,
+          loader: 'raw-loader!sass-loader',
+          exclude: helpers.excludeIndexHtml(conf.src, conf.htmlIndexes)
+        },
+		
         /**
          * Raw loader support for *.css files
          * Returns file content as string
